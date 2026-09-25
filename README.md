@@ -1,63 +1,107 @@
 # NexaBook
 
-NexaBook is a complete appointment and business management platform built with Flutter, ASP.NET Core and SQL Server.
+NexaBook is a full-stack appointment booking and business management system built with **Flutter, ASP.NET Core and SQL Server**.
 
-The repository contains two Flutter applications that use the same REST API:
+The project includes two applications connected to the same backend:
 
-- **NexaBook Client** - customer mobile application for booking appointments, deposits, invoices and notifications.
-- **NexaBook Business** - responsive management application for owners, managers and staff.
-- **NexaBook API** - ASP.NET Core Web API with Entity Framework Core, JWT authentication and SQL Server.
+- **Client App** – browse services, book appointments, view bookings and invoices, and manage the account.
+- **Business App** – manage appointments, customers, staff, services, payments, invoices, expenses and reports.
 
-## Main features
+## Screenshots
 
-### Client app
-- Registration and login
-- Business/service discovery
-- Staff and availability selection
-- Appointment booking, rescheduling and cancellation
-- Deposits and payment history
-- Invoice history
-- Notifications
-- Profile management
+### Client App
 
-### Business app
-- KPI dashboard
-- Calendar and appointments
-- Customer management
-- Staff, roles and permissions
-- Services and categories
-- Work schedules
-- Payments and deposits
-- Invoices
-- Expenses and finance overview
-- Reports and staff performance
-- Notifications and business settings
+<p align="center">
+  <img src="screenshots/1.png" width="30%" />
+  <img src="screenshots/2.png" width="30%" />
+  <img src="screenshots/3.png" width="30%" />
+</p>
 
-## Stack
-- Flutter / Dart
-- ASP.NET Core (.NET 10)
+### Business App
+
+<p align="center">
+  <img src="screenshots/4.png" width="47%" />
+  <img src="screenshots/5.png" width="47%" />
+</p>
+
+<p align="center">
+  <img src="screenshots/6.png" width="47%" />
+  <img src="screenshots/7.png" width="47%" />
+</p>
+
+<p align="center">
+  <img src="screenshots/8.png" width="47%" />
+</p>
+
+## Tech Stack
+
+**Frontend**
+- Flutter & Dart
+- Provider
+- Dio
+
+**Backend**
+- ASP.NET Core Web API
+- C#
 - Entity Framework Core
-- SQL Server
-- JWT + BCrypt
+- JWT Authentication
 
-## Structure
-```
+**Database**
+- Microsoft SQL Server
+
+## Main Features
+
+- User authentication and role-based authorization
+- Appointment booking and management
+- Customer and staff management
+- Services and availability
+- Payments and deposits
+- Invoices and expenses
+- Notifications
+- Reports and business dashboard
+- Client profile management
+
+## Project Structure
+
+```text
 NexaBook/
-  backend/NexaBook.Api/
-  apps/nexabook_client/
-  apps/nexabook_business/
-  docs/
+├── apps/
+│   ├── nexabook_client/
+│   └── nexabook_business/
+├── backend/
+│   └── NexaBook.Api/
+├── docs/
+├── screenshots/
+└── README.md
 ```
 
-## Demo accounts
-- Owner: `owner@nexabook.dev` / `Demo123!`
-- Staff: `staff@nexabook.dev` / `Demo123!`
-- Client: `client@nexabook.dev` / `Demo123!`
+## Running Locally
 
-## Local setup
-1. Update the SQL Server connection string in `backend/NexaBook.Api/appsettings.json`.
-2. Run the API from Visual Studio or with `dotnet run`.
-3. In each Flutter app, run `flutter pub get` and then `flutter run`.
-4. Android emulator API base URL is configured as `http://10.0.2.2:5080/api`. For Windows use `http://localhost:5080/api`.
+Backend:
 
-The API creates and seeds a demo database on first run for portfolio/local use. For production, replace `EnsureCreated` with EF Core migrations and move secrets to environment variables.
+```bash
+cd backend/NexaBook.Api
+dotnet restore
+dotnet ef database update
+dotnet run
+```
+
+Client app:
+
+```bash
+cd apps/nexabook_client
+flutter pub get
+flutter run
+```
+
+Business app:
+
+```bash
+cd apps/nexabook_business
+flutter pub get
+flutter run
+```
+
+## About
+
+NexaBook was built as a full-stack portfolio project to work on a complete booking flow, from the client-facing application to business management, API development and database integration.
